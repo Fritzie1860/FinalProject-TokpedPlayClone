@@ -1,13 +1,20 @@
 const express = require('express');
-const app = express();
-const port = 3000; // Port yang ingin Anda gunakan
+const cors = require('cors');
 
-// Contoh route sederhana
+const app = express();
+app.use(cors());
+
+const port = 3000;
+
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
 
-// Memulai server
+app.get('/api/data', (req, res) => {
+  res.send({ data: "Data from backend accepted" });
+});
+
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
