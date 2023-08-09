@@ -9,19 +9,19 @@ const user = require('./User');
 const videosData = [
     {
         link_thumbnail: "dummy.png",
-        link_video: "link_video.com-1",
+        link_video: "https://www.youtube.com/watch?v=yoBibrIPWJQ",
         title: "MURAH BGT",
         upload_date: "2022-07-28",
     },
     {
         link_thumbnail: "dummy.png",
-        link_video: "link_video.com-2",
+        link_video: "https://www.youtube.com/watch?v=yoBibrIPWJQ",
         title: "MURAH BGT",
         upload_date: "2022-07-28",
     },
     {
         link_thumbnail: "dummy.png",
-        link_video: "link_video.com-3",
+        link_video: "https://www.youtube.com/watch?v=yoBibrIPWJQ",
         title: "MURAH BGT",
         upload_date: "2022-07-28",
     },
