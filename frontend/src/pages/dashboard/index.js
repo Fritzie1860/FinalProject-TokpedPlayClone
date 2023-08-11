@@ -1,28 +1,25 @@
-// Layout.js
-import React, {useEffect, useState} from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Thumbnail from '../../components/thumbnail';
-
+import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Thumbnail from "../../components/Thumbnail";
 
 const Dashboard = () => {
+  const [data, setData] = useState([]);
 
-    const [data, setData] = useState([]);
-
-    // useEffect(() => {
-    //     fetchData().then(data => {
-    //         setData(data);
-    //     });
-    // }, []);
-    return (
-        <div>
-            <Header/>
-            <main>
-                <Thumbnail ></Thumbnail>
-            </main>
-            <Footer/>
-        </div>
-    );
+  // useEffect(() => {
+  //     fetchData().then(data => {
+  //         setData(data);
+  //     });
+  // }, []);
+  return (
+    <>
+      <Header />
+      <main>
+        <Thumbnail />
+      </main>
+      <Footer />
+    </>
+  );
 };
 
 export default Dashboard;

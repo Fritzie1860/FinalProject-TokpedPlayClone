@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/" exact component={Dashboard} />
         <Route path="/video" component={Video} />
         {/* <Route path="/contact" component={Contact} /> */}
       </Switch>
