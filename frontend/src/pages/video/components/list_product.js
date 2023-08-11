@@ -71,7 +71,15 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Plyr from "plyr"; // Import Plyr component
 import "plyr/dist/plyr.css"; // Import Plyr styles
-import { Container, Row, Col, ListGroup, Form, Button } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  Form,
+  Button,
+} from "react-bootstrap";
 import "./player.css";
 import { BsPlayFill } from "react-icons/bs";
 import SVGDefinitions from "./SVGDefinitions";
@@ -137,72 +145,32 @@ const List_product = () => {
 
   return (
     <Container className="mt-4">
-      <Row style={{ margin: "8% 15px auto 15px" }}>
+      <Row style={{ margin: "15% 15px auto 15px" }}>
         <Col lg={2}>
           {/* Related Products */}
-          <ListGroup className="mb-4" style={{ maxHeight: "60vh", overflowY: "auto" }}>
+          <ListGroup
+            className="mb-4"
+            style={{ maxHeight: "60vh", overflowY: "auto" }}
+          >
             {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
-            ))}
-            {data.map((item) => (
-              <ListGroup.Item key={item._id}>
-                <p>Title: {item.title}</p>
-                <p>Price: {item.price}</p>
-                {/* Add more product details */}
-              </ListGroup.Item>
+              <Card className="thumbnail-card">
+                <Card.Img
+                  variant="top"
+                  src={item.link_imageProduct}
+                  className="card-img"
+                />
+                <Card.Body>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Text>{item.price}</Card.Text>
+                  <a
+                    href={item.link_product}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch Video
+                  </a>
+                </Card.Body>
+              </Card>
             ))}
           </ListGroup>
         </Col>
