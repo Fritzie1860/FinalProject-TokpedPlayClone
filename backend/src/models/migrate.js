@@ -116,7 +116,7 @@ async function insertProduct() {
 }
 
 async function populateDatabase() {
-  await mongoose.connect("mongodb://localhost:27017/final_db", {
+  await mongoose.connect("mongodb+srv://final_db:final_db!@tokpedplay-fritzie.b3j9qs8.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
