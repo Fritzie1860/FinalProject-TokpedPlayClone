@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Plyr from "plyr";
 import "plyr/dist/plyr.css";
+import "./player.css";
 
 const Videoplayer = () => {
   const videoRef = useRef(null);

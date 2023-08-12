@@ -82,24 +82,7 @@
 //             style={{ maxHeight: "60vh", overflowY: "auto" }}
 //           >
 //             {data.map((item) => (
-//               <Card className="thumbnail-card">
-//                 <Card.Img
-//                   variant="top"
-//                   src={item.link_imageProduct}
-//                   className="card-img"
-//                 />
-//                 <Card.Body>
-//                   <Card.Title>{item.title}</Card.Title>
-//                   <Card.Text>{item.price}</Card.Text>
-//                   <a
-//                     href={item.link_product}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                   >
-//                     Watch Video
-//                   </a>
-//                 </Card.Body>
-//               </Card>
+
 //             ))}
 //           </ListGroup>
 //         </Col>
@@ -162,14 +145,35 @@
 // export default List_product;
 
 import React from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, Col } from "react-bootstrap";
+import "./product.css"; // Import the product.css file
 
 const Productlist = ({ data }) => {
   return (
-    <ListGroup className="mb-4" style={{ maxHeight: "60vh", overflowY: "auto" }}>
+    <ListGroup
+      className="mb-4 product-list"
+      style={{ maxHeight: "60vh", overflowY: "auto" }}
+    >
       {data.map((item) => (
-        <Card className="thumbnail-card" key={item._id}>
-          {/* ... Product Card content */}
+        <Card className="product-card" key={item._id}>
+          <Card.Body>
+            <Col xs={3} className="image-col">
+              <img className="image" src="/product.jpg" alt="Product" />
+            </Col>
+            <Col xs={9} className="text-col">
+              <div className="text">
+                <p className="title">{item.title}</p>
+                <p className="desc">{item.price}</p>
+                <a
+                  href={item.link_product}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Watch Video
+                </a>
+              </div>
+            </Col>
+          </Card.Body>
         </Card>
       ))}
     </ListGroup>
@@ -177,4 +181,3 @@ const Productlist = ({ data }) => {
 };
 
 export default Productlist;
-

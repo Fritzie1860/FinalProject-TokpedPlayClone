@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Row, Col } from "react-bootstrap";
-import "./Thumbnail.css";
+import "./thumbnail.css";
 
 const Thumbnail = () => {
   const [data, setData] = useState([]);

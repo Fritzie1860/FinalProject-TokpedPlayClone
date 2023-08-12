@@ -96,8 +96,7 @@ const VideoDetail = () => {
   return (
     <>
       <Header />
-      <Container className="mt-4">
-        <Row>
+        <Row style={{ margin: "10% 15px auto 15px" }}>
           <Col lg={2}>
             <ProductList data={data} />
           </Col>
@@ -109,7 +108,6 @@ const VideoDetail = () => {
             <CommentList comments={comments} />
           </Col>
         </Row>
-      </Container>
       <Footer />
     </>
   );
