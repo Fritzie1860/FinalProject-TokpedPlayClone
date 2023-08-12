@@ -13,6 +13,7 @@ const app = express();
 require('dotenv').config();
 
 // Middleware
+// Allow cross-origin requests from any origin
 app.use(cors());
 app.use(bodyParser.json());
 
