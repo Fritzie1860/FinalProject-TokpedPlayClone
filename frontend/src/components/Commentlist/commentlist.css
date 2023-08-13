@@ -41,4 +41,26 @@
   .comment-form button {
     margin-top: 10px;
   }
+
+  .chat-message {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .username {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .message {
+    background-color: #e2e2e2;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .chat-container {
+    max-height: 300px; /* Set the maximum height of the chat container */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds max-height */
+  }
+  
   

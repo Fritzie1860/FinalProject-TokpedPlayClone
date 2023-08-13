@@ -53,15 +53,21 @@ import ProductList from "../../components/Productlist";
 import VideoPlayer from "../../components/Videoplayer";
 import CommentList from "../../components/Commentlist";
 
+
 const VideoDetail = () => {
+  
   const [data, setData] = useState([]);
   const [comments, setComments] = useState([]); // State for comments
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [id, setId] = useState(null);
+  const [fresh, setFresh] = useState(null);
+
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const id = urlSearchParams.get("id");
+    setId(id);
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -83,7 +89,7 @@ const VideoDetail = () => {
     };
 
     fetchData();
-  }, []);
+  }, [fresh]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -105,7 +111,7 @@ const VideoDetail = () => {
           </Col>
           <Col lg={2}>
             {/* Pass the comments data to CommentList */}
-            <CommentList comments={comments} />
+            <CommentList comments={comments} ids={id} fresh={setFresh}/>
           </Col>
         </Row>
       <Footer />

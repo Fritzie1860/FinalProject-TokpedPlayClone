@@ -1,81 +1,125 @@
-import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import {Form, Button} from "react-bootstrap";
+import "./commentlist.css";
 
-const Commentlist = ({ comments }) => {
-  const [comment, setComment] = useState("");
-  const [username, setUsername] = useState("");
+const Commentlist = (props) => {
+    const {comments, ids, fresh} = props;
+    const [data, setData] = useState("");
+    const [comment, setComment] = useState("");
+    const [username, setUsername] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
+    const handleUsername = (e) => {
+        setUsername(e.target.value);
+    };
 
-  const handleCommentChange = (e) => {
-    setComment(e.target.value);
-  };
+    const handleCommentChange = (e) => {
+        setComment(e.target.value);
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle comment submission logic here
-    console.log("Submitted username:", username);
-    console.log("Submitted comment:", comment);
-    // setComment("");
-  };
+    const fetchData = async (name, comments) => {
+        try {
+            const url = "http://localhost:3001/api/comment/comments";
+            const params = {
+                username: name,
+                comment: comments,
+                video_id: ids
+            };
+            const response = await axios.post(url, params);
+            console.log('hai, ' + JSON.stringify(response));
+            setData(response.data);
+            setLoading(false);
+        } catch (error) {
+            setError("Error fetching data " + error);
+            setLoading(false);
+        }
+    };
 
-  return (
-    <div className="video-comments">
-      <h4>Comments</h4>
-      <div className="comment-form">
-        <Form onSubmit={handleSubmit} className="d-flex">
-          <div className="row m-2">
-            <input type="hidden" name="video_id"/>
-            <input
-              type="text"
-              placeholder="Username..."
-              className="flex-grow-1 mr-2"
-              value={username}
-              onChange={handleUsername}
-              name="username"
-              style={{
-                border: "none",
-                borderBottom: "1px solid #ccc",
-                padding: "5px 0",
-                marginRight: "10px",
-                outline: "none",
-                width: "70%",
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Add a comment..."
-              className="flex-grow-1 mr-2"
-              value={comment}
-              onChange={handleCommentChange}
-              name="comment"
-              style={{
-                border: "none",
-                borderBottom: "1px solid #ccc",
-                padding: "5px 0",
-                marginRight: "10px",
-                outline: "none",
-                width: "70%",
-              }}
-            />
-          </div>
-          <Button type="submit" className="btn btn-primary">
-            Send
-          </Button>
-        </Form>
-      </div>
-      <br></br>
-      {/* Render the comments */}
-      {comments.map((comment, index) => (
-        <div className="comment" key={index}>
-          <div className="username">{comment.username}</div>
-          <div className="text">{comment.comment}</div>
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Handle comment submission logic here
+        console.log("Submitted username:", username);
+        console.log("Submitted comment:", comment);
+        setLoading(true);
+        await fetchData(username, comment);
+        fresh(Math.floor(Math.random() * (100 - 1 + 1)) + 1);
+        setLoading(false);
+        // setComment("");
+    };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
+
+    return (
+        <div className="video-comments">
+            <h4>Comments</h4>
+            <div className="comment-form">
+                <Form onSubmit={handleSubmit}
+                    className="d-flex">
+                    <div className="row m-2">
+                        <input type="hidden" name="video_id"
+                            value={ids}/>
+                        <input type="text" placeholder="Username..." className="flex-grow-1 mr-2"
+                            value={username}
+                            onChange={handleUsername}
+                            name="username"
+                            style={
+                                {
+                                    border: "none",
+                                    borderBottom: "1px solid #ccc",
+                                    padding: "5px 0",
+                                    marginRight: "10px",
+                                    outline: "none",
+                                    width: "70%"
+                                }
+                            }/>
+                        <input type="text" placeholder="Add a comment..." className="flex-grow-1 mr-2"
+                            value={comment}
+                            onChange={handleCommentChange}
+                            name="comment"
+                            style={
+                                {
+                                    border: "none",
+                                    borderBottom: "1px solid #ccc",
+                                    padding: "5px 0",
+                                    marginRight: "10px",
+                                    outline: "none",
+                                    width: "70%"
+                                }
+                            }/>
+                    </div>
+                    <Button type="submit" className="btn btn-primary">
+                        Send
+                    </Button>
+                </Form>
+            </div>
+            <br></br>
+            <div className="chat-container">
+            {
+            comments.map((comment, index) => (
+                  <div className="chat-message">
+                    <div className="username">
+                        {
+                        comment.username
+                    }</div>
+                    <div className="message">
+                        {
+                        comment.comment
+                    }</div>
+                </div>
+            ))
+        } </div>
         </div>
-      ))}
-    </div>
-  );
+        
+    );
 };
 
 export default Commentlist;

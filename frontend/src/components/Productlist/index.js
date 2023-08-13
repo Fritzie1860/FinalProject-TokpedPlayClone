@@ -158,7 +158,7 @@ const Productlist = ({ data }) => {
         <Card className="product-card" key={item._id}>
           <Card.Body>
             <Col xs={3} className="image-col">
-              <img className="image" src="/product.jpg" alt="Product" />
+              <img className="image" src={item.link_imageProduct} alt="Product" />
             </Col>
             <Col xs={9} className="text-col">
               <div className="text">
