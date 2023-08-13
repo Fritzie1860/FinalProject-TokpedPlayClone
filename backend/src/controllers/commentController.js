@@ -5,7 +5,7 @@ const Comment = require('../models/Comment');
 const getCommentsByVideo = async (req, res) => {
   try {
     const video_id = req.params.video_id;
-    const comments = await Comment.find({ video_id }, '_id username comment timestamp').exec();
+    const comments = await Comment.find({ video_id }, '_id username comment timestamp').sort({ timestamp: -1 }).exec();
     res.json(comments);
   } catch (err) {
     res.status(500).json({ error: 'Unable to fetch comments.' });
@@ -15,12 +15,19 @@ const getCommentsByVideo = async (req, res) => {
 // Submit a comment for a video
 const submitComment = async (req, res) => {
   try {
+    console.log(JSON.stringify(req.body));
     const { username, comment, video_id } = req.body;
-    const newComment = new Comment({ username, comment, video_id });
-    await newComment.save();
-    res.json({ success: true, message: 'Comment submitted successfully.' });
+    const videosData = [{
+      video_id : video_id,
+      comment : comment,
+      username : username
+    }];
+    // const newComment = new Comment({ username, comment, video_id });
+    // await newComment.save();
+    await Comment.insertMany(videosData);
+    res.json({ success: true, message: 'Comment submitted successfully.' , data: videosData });
   } catch (err) {
-    res.status(500).json({ error: 'Unable to submit comment.' });
+    res.status(500).json({ error: 'Unable to submit comment.' , data: err});
   }
 };
 
