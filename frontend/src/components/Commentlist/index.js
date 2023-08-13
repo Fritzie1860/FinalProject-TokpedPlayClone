@@ -46,7 +46,8 @@ const Commentlist = (props) => {
         await fetchData(username, comment);
         fresh(Math.floor(Math.random() * (100 - 1 + 1)) + 1);
         setLoading(false);
-        // setComment("");
+        setUsername("");
+        setComment("");
     };
 
     if (loading) {
@@ -64,12 +65,14 @@ const Commentlist = (props) => {
             <div className="comment-form">
                 <Form onSubmit={handleSubmit}
                     className="d-flex">
-                    <div className="row m-2">
+                    <div className="row m-1">
                         <input type="hidden" name="video_id"
                             value={ids}/>
                         <input type="text" placeholder="Username..." className="flex-grow-1 mr-2"
+                            required
                             value={username}
                             onChange={handleUsername}
+                            maxLength={20}
                             name="username"
                             style={
                                 {
@@ -82,6 +85,8 @@ const Commentlist = (props) => {
                                 }
                             }/>
                         <input type="text" placeholder="Add a comment..." className="flex-grow-1 mr-2"
+                            required
+                            maxLength={100}
                             value={comment}
                             onChange={handleCommentChange}
                             name="comment"
@@ -95,8 +100,10 @@ const Commentlist = (props) => {
                                     width: "70%"
                                 }
                             }/>
+                        <p className="character-count">{comment.length}/{200}</p>
                     </div>
-                    <Button type="submit" className="btn btn-primary">
+                    <div className="row m-2"></div>
+                    <Button type="submit" className="btn btn-primary" >
                         Send
                     </Button>
                 </Form>

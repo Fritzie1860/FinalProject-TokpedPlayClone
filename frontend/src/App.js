@@ -12,7 +12,6 @@ function App() {
       <Switch>
         <Route path="/" exact component={Dashboard} />
         <Route path="/video" component={Video} />
-        {/* <Route path="/contact" component={Contact} /> */}
       </Switch>
     </Router>
   );

@@ -1,49 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import Header from "../../components/Header";
-// import Footer from "../../components/Footer";
-// import Productlist from "../../components/Productlist";
-
-// const Video = () => {
-
-//   const [data, setData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const urlSearchParams = new URLSearchParams(window.location.search);
-//     const id = urlSearchParams.get("id");
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get(
-//           "http://localhost:3001/api/product/products/" + id
-//         );
-//         // console.log(JSON.stringify(response.data));
-//         setData(response.data);
-//         // await sleep(2000);
-//         setLoading(false);
-//       } catch (error) {
-//         setError("Error fetching data " + error);
-//         setLoading(false);
-//       }
-//     };
-//     fetchData();
-
-//   }, []);
-
-//   return (
-//     <div>
-//       <Header />
-//       <main>
-//         <Productlist list={data}></Productlist>
-//       </main>
-//       <Footer />
-//     </div>
-//   );
-// };
-
-// export default Video;
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
@@ -106,15 +60,14 @@ const VideoDetail = () => {
           <Col lg={2}>
             <ProductList data={data} />
           </Col>
-          <Col lg={8}>
+          <Col lg={7}>
             <VideoPlayer />
           </Col>
-          <Col lg={2}>
-            {/* Pass the comments data to CommentList */}
+          <Col lg={3}>
             <CommentList comments={comments} ids={id} fresh={setFresh}/>
           </Col>
         </Row>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -17,7 +17,7 @@ const Dashboard = () => {
       <main>
         <Thumbnail />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

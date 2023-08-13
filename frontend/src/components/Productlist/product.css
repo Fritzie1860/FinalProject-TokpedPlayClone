@@ -1,11 +1,14 @@
 .product-card {
-  width: 90%;
+  width: 95%;
   border: none;
   background-color: white;
   position: relative;
+  align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   margin-bottom: 15px;
+  display: flex; /* Add this line to make it a flex container */
+  justify-content: center; /* Center content horizontally */
 }
 
 .product-card:hover {
@@ -13,7 +16,12 @@
 }
 
 .image-col {
-  padding-right: 0; /* Remove padding for image column */
+  padding-right: 10px;
+  
+}
+
+.row-image{
+  max-width: 50%;
 }
 
 .image {
@@ -21,24 +29,32 @@
   height: auto;
 }
 
-.text-col {
-  padding-left: 0; /* Remove padding for text column */
+a{
+  text-decoration: none;
+}
+
+.text-col{
+  vertical-align: middle;
 }
 
 .text {
   font-size: small;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
 }
 
 .title {
-  margin: 0; /* Remove margin to align text properly */
+  margin-bottom: 0;
+  color: #05AA5B;
+  font-size: 16px;
+  vertical-align: middle;
 }
 
 .desc {
-  margin-bottom: 0; /* Remove margin bottom for description */
+  color: #494949;
+  font-weight: bold;
 }
-
-/* ... other styles ... */
-
 
 .product-card .overlay {
   position: absolute;
@@ -104,7 +120,7 @@
 
 
 .product-list {
-  max-height: 10vh;
+  max-height: 65vh;
   overflow-y: auto;
   overflow: scroll;
 }
