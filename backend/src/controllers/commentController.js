@@ -22,6 +22,7 @@ const submitComment = async (req, res) => {
       comment : comment,
       username : username
     }];
+    console.log("Masuk "+ JSON.stringify(videosData));
     // const newComment = new Comment({ username, comment, video_id });
     // await newComment.save();
     await Comment.insertMany(videosData);

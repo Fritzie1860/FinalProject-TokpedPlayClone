@@ -21,7 +21,7 @@ const Commentlist = (props) => {
 
     const fetchData = async (name, comments) => {
         try {
-            const url = "https://tiny-red-dog-coat.cyclic.cloud/comments";
+            const url = "http://localhost:3001/api/comment/comments";
             const params = {
                 username: name,
                 comment: comments,
@@ -39,7 +39,6 @@ const Commentlist = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle comment submission logic here
         console.log("Submitted username:", username);
         console.log("Submitted comment:", comment);
         setLoading(true);

@@ -53,7 +53,7 @@ const Thumbnail = () => {
                 <Card.Title>{video.title}</Card.Title>
                 <Card.Text>{video.upload_date}</Card.Text>
                 <a
-                  href={"http://localhost:3000/video?id=" + video._id}
+                  href={"https://main--unique-begonia-f269a8.netlify.app/video?id=" + video._id}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
