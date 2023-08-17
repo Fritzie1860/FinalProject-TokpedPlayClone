@@ -21,7 +21,7 @@ const Commentlist = (props) => {
 
     const fetchData = async (name, comments) => {
         try {
-            const url = "http://localhost:3001/api/comment/comments";
+            const url = "https://tiny-red-dog-coat.cyclic.cloud/comments";
             const params = {
                 username: name,
                 comment: comments,
