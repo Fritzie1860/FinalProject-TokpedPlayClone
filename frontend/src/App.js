@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Video} />
-        <Route path="/video" component={Dashboard} />
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/video" component={Video} />
       </Switch>
     </Router>
   );
