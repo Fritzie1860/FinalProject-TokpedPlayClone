@@ -25,13 +25,13 @@ const VideoDetail = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/product/products/" + id
+          "https://tiny-red-dog-coat.cyclic.cloud/products/" + id
         );
         setData(response.data);
 
         // Fetch comments data here and set it to the state
         const commentsResponse = await axios.get(
-          "http://localhost:3001/api/comment/comments/" + id
+          "https://tiny-red-dog-coat.cyclic.cloud/comments/" + id
         );
         setComments(commentsResponse.data);
 
