@@ -16,7 +16,7 @@ const Thumbnail = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://tiny-red-dog-coat.cyclic.cloud/videos"
+          "https://tokpedplay-fritzie.onrender.com/videos"
         );
         setData(response.data);
         await sleep(2000);

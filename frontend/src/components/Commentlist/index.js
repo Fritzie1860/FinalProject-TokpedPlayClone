@@ -21,7 +21,7 @@ const Commentlist = (props) => {
 
     const fetchData = async (username, comments) => {
         try {
-            const url = "https://tiny-red-dog-coat.cyclic.cloud/comments";
+            const url = "https://tokpedplay-fritzie.onrender.com/comments";
             const params = {
                 username: username,
                 comment: comments,

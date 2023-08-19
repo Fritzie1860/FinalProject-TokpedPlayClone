@@ -3,15 +3,15 @@ import Plyr from "plyr";
 import "plyr/dist/plyr.css";
 import "./player.css";
 
-const Videoplayer = () => {
+const Videoplayer = ({ link_video }) => {
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    const player = new Plyr(videoRef.current);
-    return () => {
-      player.destroy();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const player = new Plyr(videoRef.current);
+  //   return () => {
+  //     player.destroy();
+  //   };
+  // }, []);
 
   return (
     <div className="player" data-plyr-provider="youtube" data-plyr-embed-id="yoBibrIPWJQ">
@@ -19,7 +19,7 @@ const Videoplayer = () => {
         <iframe
           ref={videoRef}
           className="embed-responsive-item"
-          src="https://www.youtube.com/embed/yoBibrIPWJQ"
+          src = {`https://www.youtube.com/embed/${link_video}`}
           title="YouTube Video"
           allowFullScreen
         ></iframe>

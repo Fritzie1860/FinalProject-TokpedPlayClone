@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import "./product.css"; // Import the product.css file
+import "./product.css";
 
 const Productlist = ({ data }) => {
   return (
