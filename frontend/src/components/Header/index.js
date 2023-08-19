@@ -10,7 +10,7 @@ const Header = () => {
       className="navbar bg-white shadow navbar-expand-lg fixed-top banner--stick"
     >
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="https://tokpedplay-fritzie.000webhostapp.com/">
           <img src={imagePath} alt="Logo" />
         </Navbar.Brand>
         <Form inline className="ml-auto">

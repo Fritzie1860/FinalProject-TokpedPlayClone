@@ -51,7 +51,7 @@ const Thumbnail = () => {
               />
               <Card.Body>
                 <Card.Title>{video.title}</Card.Title>
-                <Card.Text>{video.upload_date}</Card.Text>
+                {/* <Card.Text>{video.upload_date}</Card.Text> */}
                 <a
                   href={"https://tokpedplay-fritzie.000webhostapp.com/video?id=" + video._id}
                   target="_blank"
